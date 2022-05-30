@@ -21,9 +21,10 @@ jobs:
       - uses: actions/checkout@v1
 
       # Runs a single command using the runners shell
-      - name: hello-action
+      - name: "hello-action"
         uses: ./.github/actions/hello-world
-
+        with:
+          thirdGreeting: "this is third"
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
         run: |
