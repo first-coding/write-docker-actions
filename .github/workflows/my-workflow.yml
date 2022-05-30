@@ -24,8 +24,6 @@ jobs:
       - name: "hello-action"
         uses: ./.github/actions/hello-world
         with:
-          firstGreeting: "this is first"
-          secondGreeting: "this is second"
           thirdGreeting: "this is third"
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
