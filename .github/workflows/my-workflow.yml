@@ -1,19 +1,32 @@
+# This is a basic workflow to help you get started with Actions
+
 name: Docker Actions
 
-on:
-  pull_request:
-    types: [labeled]
-    
+# Controls when the workflow will run
+on: [push]
+  # Triggers the workflow on push or pull request events but only for the main branch
+
+#   # Allows you to run this workflow manually from the Actions tab
+#   workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   action:
     runs-on: ubuntu-latest
-    
-    
+  # This workflow contains a single job called "build"
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v1
-      
-      - name: hello-action
+
+      # Runs a single command using the runners shell
+      - name: "hello-action"
         uses: ./.github/actions/hello-world
-        
-      - name: meow
-        uses: ./.github/actions/cat-facts
+        with:
+          thirdGreeting: "this is third"
+      # Runs a set of commands using the runners shell
+      - name: Run a multi-line script
+        run: |
+          echo Add other actions to build,
+          echo test, and deploy your project.
